@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block header_text %}
+{% endblock header_text %}
+
+{% block header_poster %}
+{% endblock header_poster %}
+
+
+
+{% block main %}
+    <main>
+        <section class="category_products">
+            <div class="container">
+                <h3>Избранные товары</h3>
+                <div class="row">
+                    {% for product in products %}
+                        {% include 'store/components/_product_card.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock main %}

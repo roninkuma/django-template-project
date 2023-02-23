@@ -1,0 +1,15 @@
+<div class="container d-flex justify-content-center">
+    {% if request.user.is_authenticated %}
+    <form class="col-12" action="{% url 'save_review' product.slug %}" method="post">
+        <h2>Оставьте свой отзыв</h2>
+        <h4>{{ request.user.username }}</h4>
+        {% csrf_token %}
+        {{ review_form.text }}
+        <button class="btn btn-success" type="submit">Оставить</button>
+    </form>
+    {% else %}
+    <h3>
+        <a href="{% url 'login_register' %}">Войдите</a> чтобы оставить отзыв
+    </h3>
+    {% endif %}
+</div>
